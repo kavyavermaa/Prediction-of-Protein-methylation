@@ -34,24 +34,23 @@ Classify protein sequences as methylated (1) or non-methylated (0) based on thei
 - Dense layer with sigmoid activation for binary output
 
 ---
-
-## How to Run
-
 ### Install requirements:
 
 ```bash
 pip install numpy pandas scikit-learn tensorflow matplotlib
+```
 
 ## How to Run
 
-1. Prepare your `dataset.csv` in the required format.
+1. Prepare your `store_data.csv` in the required format.
 
 2. Run the notebook or script:
 
 ```bash
 python train_model.py
+```
 
-## Results
+#### Results
 
 - Training Accuracy: ~89%
 - Validation Accuracy: ~85–90%
