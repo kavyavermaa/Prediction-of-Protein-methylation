@@ -19,52 +19,40 @@ Classify protein sequences as methylated (1) or non-methylated (0) based on thei
 - Performance evaluated with accuracy, precision, recall, and F1-score
 
 ---
-
 ## Input Format
 
-The model accepts a CSV file in the following format:
+- `sequence`: String of 21 amino acids (fixed-length, pre-padded or truncated)
+- `label`: 1 for methylated, 0 for non-methylated
 
-```csv
-sequence,label
-ACDEFGHIKLMNPQRSTVWY,1
-MKTLLILAVVVAAILATYAA,0
-sequence: String of 21 amino acids (fixed-length, pre-padded or truncated)
+---
 
-label: 1 for methylated, 0 for non-methylated
+## Model Architecture
 
-Model Architecture
-Encoding layer using BLOSUM62 and physicochemical properties
+- Encoding layer using BLOSUM62 and physicochemical properties
+- Convolutional layers to detect local motifs
+- LSTM layers to capture long-term dependencies
+- Dense layer with sigmoid activation for binary output
 
-Convolutional layers to detect local motifs
+---
 
-LSTM layers to capture long-term dependencies
+## How to Run
 
-Dense layer with sigmoid activation for binary output
+### Install requirements:
 
-How to Run
-Install requirements:
-
-bash
-Copy
-Edit
+```bash
 pip install numpy pandas scikit-learn tensorflow matplotlib
-Prepare your dataset.csv in the required format.
 
-Run the notebook or script:
+## How to Run
 
-bash
-Copy
-Edit
+1. Prepare your `dataset.csv` in the required format.
+
+2. Run the notebook or script:
+
+```bash
 python train_model.py
-Predict methylation status:
 
-python
-Copy
-Edit
-predict_methylation("ACDEFGHIKLMNPQRSTVWY")  # Returns 1 (Methylated) or 0 (Non-Methylated)
-Results
-Training Accuracy: ~89%
+## Results
 
-Validation Accuracy: ~85–90%
-
-Performs well on unseen sequences
+- Training Accuracy: ~89%
+- Validation Accuracy: ~85–90%
+- Performs well on unseen sequences
